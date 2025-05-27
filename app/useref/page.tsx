@@ -16,7 +16,7 @@ export default function UseRefPage() {
 
   // Ref for storing mutable values
   const renderCount = useRef(0)
-  const previousCount = useRef<number>()
+  const previousCount = useRef<number>(0)
 
   // Update render count on every render
   useEffect(() => {
