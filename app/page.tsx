@@ -1,103 +1,190 @@
-import Image from "next/image";
+import { BookOpen, Code, Lightbulb } from "lucide-react"
+import Link from "next/link"
+import { Button } from "@/components/ui/button"
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 
-export default function Home() {
+export default function HomePage() {
+  const hooks = [
+    {
+      name: "useState",
+      description: "Manage state in functional components",
+      icon: "🔄",
+      difficulty: "Beginner",
+    },
+    {
+      name: "useEffect",
+      description: "Handle side effects and lifecycle events",
+      icon: "⚡",
+      difficulty: "Beginner",
+    },
+    {
+      name: "useRef",
+      description: "Access DOM elements and persist values",
+      icon: "🎯",
+      difficulty: "Intermediate",
+    },
+    {
+      name: "useReducer",
+      description: "Manage complex state with reducer pattern",
+      icon: "🔧",
+      difficulty: "Intermediate",
+    },
+    {
+      name: "useContext",
+      description: "Share data across component tree",
+      icon: "🌐",
+      difficulty: "Intermediate",
+    },
+    {
+      name: "useMemo",
+      description: "Optimize performance with memoization",
+      icon: "💡",
+      difficulty: "Advanced",
+    },
+    {
+      name: "useCallback",
+      description: "Memoize functions to prevent re-renders",
+      icon: "🚀",
+      difficulty: "Advanced",
+    },
+  ]
+
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm/6 text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-[family-name:var(--font-geist-mono)] font-semibold">
-              app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
+    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900">
+      {/* Hero Section */}
+      <section className="pt-32 pb-20 px-4">
+        <div className="max-w-6xl mx-auto text-center">
+          <div className="mb-8">
+            <span className="inline-block px-4 py-2 bg-purple-500/20 text-purple-300 rounded-full text-sm font-medium mb-6">
+              Interactive Learning Platform
+            </span>
+            <h1 className="text-5xl md:text-7xl font-bold text-white mb-6">
+              Master React
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-400"> Hooks</span>
+            </h1>
+            <p className="text-xl text-gray-300 max-w-3xl mx-auto mb-8">
+              Learn React hooks through interactive examples, practical exercises, and comprehensive explanations. From
+              basic state management to advanced optimization techniques.
+            </p>
+          </div>
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center mb-16">
+            <Button size="lg" className="bg-purple-600 hover:bg-purple-700 text-white px-8 py-3">
+              <BookOpen className="mr-2 h-5 w-5" />
+              Start Learning
+            </Button>
+            <Button
+              size="lg"
+              variant="outline"
+              className="border-purple-400 text-purple-400 hover:bg-purple-400 hover:text-white px-8 py-3"
+            >
+              <Code className="mr-2 h-5 w-5" />
+              View Examples
+            </Button>
+          </div>
+
+          {/* Stats */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-2xl mx-auto">
+            <div className="text-center">
+              <div className="text-3xl font-bold text-white mb-2">7+</div>
+              <div className="text-gray-400">React Hooks</div>
+            </div>
+            <div className="text-center">
+              <div className="text-3xl font-bold text-white mb-2">50+</div>
+              <div className="text-gray-400">Code Examples</div>
+            </div>
+            <div className="text-center">
+              <div className="text-3xl font-bold text-white mb-2">100%</div>
+              <div className="text-gray-400">Interactive</div>
+            </div>
+          </div>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+      </section>
+
+      {/* Hooks Grid */}
+      <section className="py-20 px-4">
+        <div className="max-w-6xl mx-auto">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-bold text-white mb-4">Explore React Hooks</h2>
+            <p className="text-gray-300 text-lg">Click on any hook to start learning with interactive examples</p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {hooks.map((hook) => (
+              <Link key={hook.name} href={`/${hook.name.toLowerCase()}`}>
+                <Card className="bg-slate-800/50 border-slate-700 hover:border-purple-500 transition-all duration-300 hover:scale-105 cursor-pointer group">
+                  <CardHeader>
+                    <div className="flex items-center justify-between mb-2">
+                      <span className="text-3xl">{hook.icon}</span>
+                      <span
+                        className={`px-2 py-1 rounded-full text-xs font-medium ${
+                          hook.difficulty === "Beginner"
+                            ? "bg-green-500/20 text-green-400"
+                            : hook.difficulty === "Intermediate"
+                              ? "bg-yellow-500/20 text-yellow-400"
+                              : "bg-red-500/20 text-red-400"
+                        }`}
+                      >
+                        {hook.difficulty}
+                      </span>
+                    </div>
+                    <CardTitle className="text-white group-hover:text-purple-400 transition-colors">
+                      {hook.name}
+                    </CardTitle>
+                    <CardDescription className="text-gray-400">{hook.description}</CardDescription>
+                  </CardHeader>
+                  <CardContent>
+                    <div className="flex items-center text-purple-400 text-sm font-medium">
+                      Learn more
+                      <span className="ml-2 group-hover:translate-x-1 transition-transform">→</span>
+                    </div>
+                  </CardContent>
+                </Card>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Features Section */}
+      <section className="py-20 px-4 bg-slate-800/30">
+        <div className="max-w-6xl mx-auto">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-bold text-white mb-4">Why Learn Here?</h2>
+            <p className="text-gray-300 text-lg">The best way to master React hooks</p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div className="text-center">
+              <div className="w-16 h-16 bg-purple-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                <Code className="h-8 w-8 text-white" />
+              </div>
+              <h3 className="text-xl font-bold text-white mb-2">Interactive Examples</h3>
+              <p className="text-gray-400">
+                Learn by doing with live code examples you can modify and experiment with.
+              </p>
+            </div>
+
+            <div className="text-center">
+              <div className="w-16 h-16 bg-purple-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                <Lightbulb className="h-8 w-8 text-white" />
+              </div>
+              <h3 className="text-xl font-bold text-white mb-2">Real-world Use Cases</h3>
+              <p className="text-gray-400">Understand when and how to use each hook with practical examples.</p>
+            </div>
+
+            <div className="text-center">
+              <div className="w-16 h-16 bg-purple-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                <BookOpen className="h-8 w-8 text-white" />
+              </div>
+              <h3 className="text-xl font-bold text-white mb-2">Progressive Learning</h3>
+              <p className="text-gray-400">
+                Start with basics and gradually move to advanced concepts at your own pace.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
     </div>
-  );
+  )
 }
